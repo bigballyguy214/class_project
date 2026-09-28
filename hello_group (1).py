@@ -1,4 +1,3 @@
-"""Group greeting. Add each member through a separate reviewed pull request."""
 
 members = []
 
