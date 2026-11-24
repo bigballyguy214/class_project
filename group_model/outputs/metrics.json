@@ -1,0 +1,321 @@
+{
+  "seed": 42,
+  "data": {
+    "source": "Yelp Open Dataset, business file (academic use; not redistributed)",
+    "rows": 5406,
+    "cities": [
+      "Boise",
+      "Edmonton",
+      "Indianapolis",
+      "Nashville",
+      "New Orleans",
+      "Philadelphia",
+      "Reno",
+      "Saint Louis",
+      "Santa Barbara",
+      "Tampa",
+      "Tucson"
+    ],
+    "filter": "categories include Bars and Nightlife; is_open = 1; price level and noise level recorded"
+  },
+  "split": {
+    "n_train": 3784,
+    "n_test": 1622,
+    "train_mean_reviews": 193.36,
+    "train_median_reviews": 109.0,
+    "test_mean_reviews": 205.26
+  },
+  "baseline": {
+    "rule": "predict the training mean for every bar",
+    "prediction": 193.36,
+    "test": {
+      "r2": -0.0016,
+      "rmse": 301.33,
+      "mae": 172.24,
+      "median_abs_error": 130.36
+    },
+    "test_log_r2": -0.2627,
+    "bounty_for_every_bar": false,
+    "bounty_counts": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 415,
+      "tn": 1207
+    }
+  },
+  "v1": {
+    "model": "statsmodels OLS on log1p(review_count)",
+    "terms": [
+      "price_cheap",
+      "price_high",
+      "noise_quiet",
+      "noise_loud",
+      "noise_very_loud",
+      "music_dj",
+      "music_live",
+      "music_karaoke",
+      "music_jukebox",
+      "good_for_dancing",
+      "happy_hour",
+      "closes_late_weekend",
+      "good_for_groups",
+      "outdoor_seating",
+      "has_tv",
+      "serves_food",
+      "cocktail_bar",
+      "dive_bar",
+      "sports_bar",
+      "wine_bar",
+      "pub",
+      "lounge",
+      "dance_club",
+      "beer_bar",
+      "music_venue"
+    ],
+    "adj_r2_train_log": 0.3445,
+    "r2_train_log": 0.3488,
+    "r2_test_log": 0.3319,
+    "test": {
+      "r2": 0.0413,
+      "rmse": 294.81,
+      "mae": 136.04,
+      "median_abs_error": 56.74
+    },
+    "train": {
+      "r2": 0.0769,
+      "rmse": 270.97,
+      "mae": 124.44,
+      "median_abs_error": 57.22
+    },
+    "intercept": 4.0156,
+    "coefficients": [
+      {
+        "term": "serves_food",
+        "coef": 0.7614,
+        "pct_change_reviews": 114.1,
+        "p": 1.765414460190008e-62
+      },
+      {
+        "term": "outdoor_seating",
+        "coef": 0.3836,
+        "pct_change_reviews": 46.8,
+        "p": 3.851255181856755e-29
+      },
+      {
+        "term": "music_venue",
+        "coef": 0.3685,
+        "pct_change_reviews": 44.6,
+        "p": 7.965879651676684e-07
+      },
+      {
+        "term": "good_for_groups",
+        "coef": 0.3429,
+        "pct_change_reviews": 40.9,
+        "p": 4.922264165205752e-06
+      },
+      {
+        "term": "music_jukebox",
+        "coef": 0.2571,
+        "pct_change_reviews": 29.3,
+        "p": 0.00010295123588998304
+      },
+      {
+        "term": "cocktail_bar",
+        "coef": 0.2168,
+        "pct_change_reviews": 24.2,
+        "p": 2.600433897773809e-06
+      },
+      {
+        "term": "happy_hour",
+        "coef": 0.2125,
+        "pct_change_reviews": 23.7,
+        "p": 4.710484762636567e-10
+      },
+      {
+        "term": "beer_bar",
+        "coef": 0.1896,
+        "pct_change_reviews": 20.9,
+        "p": 0.00126101520332968
+      },
+      {
+        "term": "dance_club",
+        "coef": 0.1686,
+        "pct_change_reviews": 18.4,
+        "p": 0.13574853030566458
+      },
+      {
+        "term": "price_high",
+        "coef": 0.1307,
+        "pct_change_reviews": 14.0,
+        "p": 0.04804127805685213
+      },
+      {
+        "term": "wine_bar",
+        "coef": 0.0804,
+        "pct_change_reviews": 8.4,
+        "p": 0.14008626273962946
+      },
+      {
+        "term": "dive_bar",
+        "coef": 0.0447,
+        "pct_change_reviews": 4.6,
+        "p": 0.5142679552284036
+      },
+      {
+        "term": "good_for_dancing",
+        "coef": 0.0301,
+        "pct_change_reviews": 3.1,
+        "p": 0.6345208141173031
+      },
+      {
+        "term": "music_dj",
+        "coef": 0.027,
+        "pct_change_reviews": 2.7,
+        "p": 0.7976308909001091
+      },
+      {
+        "term": "noise_loud",
+        "coef": -0.0196,
+        "pct_change_reviews": -1.9,
+        "p": 0.6619284768900631
+      },
+      {
+        "term": "music_live",
+        "coef": -0.0769,
+        "pct_change_reviews": -7.4,
+        "p": 0.07876887547030985
+      },
+      {
+        "term": "pub",
+        "coef": -0.1199,
+        "pct_change_reviews": -11.3,
+        "p": 0.005274900049382423
+      },
+      {
+        "term": "lounge",
+        "coef": -0.1917,
+        "pct_change_reviews": -17.4,
+        "p": 0.000518889985365349
+      },
+      {
+        "term": "closes_late_weekend",
+        "coef": -0.2134,
+        "pct_change_reviews": -19.2,
+        "p": 1.7200535253664507e-08
+      },
+      {
+        "term": "noise_very_loud",
+        "coef": -0.2499,
+        "pct_change_reviews": -22.1,
+        "p": 0.0010893218814483987
+      },
+      {
+        "term": "music_karaoke",
+        "coef": -0.3178,
+        "pct_change_reviews": -27.2,
+        "p": 0.09639880036499103
+      },
+      {
+        "term": "sports_bar",
+        "coef": -0.377,
+        "pct_change_reviews": -31.4,
+        "p": 5.3337003311677434e-20
+      },
+      {
+        "term": "has_tv",
+        "coef": -0.4636,
+        "pct_change_reviews": -37.1,
+        "p": 4.489249063638983e-18
+      },
+      {
+        "term": "noise_quiet",
+        "coef": -0.6327,
+        "pct_change_reviews": -46.9,
+        "p": 1.4283767509978527e-17
+      },
+      {
+        "term": "price_cheap",
+        "coef": -0.741,
+        "pct_change_reviews": -52.3,
+        "p": 1.652104908218047e-53
+      }
+    ],
+    "bounty_counts": {
+      "tp": 86,
+      "fp": 68,
+      "fn": 329,
+      "tn": 1139
+    }
+  },
+  "threshold": {
+    "reviews": 233.0,
+    "rule": "training 75th percentile of review_count",
+    "test_share_popular": 0.2559
+  },
+  "decision_example": {
+    "input_file": "example_new_bar.json",
+    "input": {
+      "name": "New LES cocktail lounge (example)",
+      "categories": "Bars, Nightlife, Cocktail Bars, Lounges",
+      "attributes": {
+        "RestaurantsPriceRange2": "2",
+        "NoiseLevel": "u'loud'",
+        "Music": "{'dj': True, 'live': False, 'karaoke': False, 'jukebox': False}",
+        "GoodForDancing": "True",
+        "HappyHour": "True",
+        "RestaurantsGoodForGroups": "True",
+        "OutdoorSeating": "False",
+        "HasTV": "False"
+      },
+      "hours": {
+        "Thursday": "18:0-1:0",
+        "Friday": "18:0-2:0",
+        "Saturday": "18:0-2:0"
+      }
+    },
+    "output": {
+      "predicted_reviews": 82.1,
+      "scout_bounty": false,
+      "threshold_reviews": 233.0
+    }
+  },
+  "value": {
+    "assumptions": {
+      "bars_in_launch_neighbourhood": 200,
+      "bounty_cost_usd_per_bar_month": 150.0,
+      "value_fresh_info_popular_bar_usd_month": 400.0,
+      "value_fresh_info_other_bar_usd_month": 50.0
+    },
+    "baseline": {
+      "usd_per_bar_by_outcome": {
+        "tp": 250.0,
+        "fp": -100.0,
+        "fn": 0.0,
+        "tn": 0.0
+      },
+      "usd_per_bar": 0.0,
+      "usd_per_month": 0.0,
+      "bounties_per_month": 0.0
+    },
+    "v1": {
+      "usd_per_bar_by_outcome": {
+        "tp": 250.0,
+        "fp": -100.0,
+        "fn": 0.0,
+        "tn": 0.0
+      },
+      "usd_per_bar": 9.063,
+      "usd_per_month": 1812.58,
+      "bounties_per_month": 19.0
+    },
+    "v1_minus_baseline_usd_per_month": 1812.58
+  },
+  "versions": {
+    "python": "3.14.3",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5",
+    "statsmodels": "0.15.0",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_note": "Realistic new input in the same raw format Yelp and our onboarding form would give us: a new Lower East Side cocktail bar and lounge with DJs on weekends, $$ prices, a loud room, dancing, happy hour, open to 2 am Fri/Sat, good for groups. Not a real venue.",
+  "name": "New LES cocktail lounge (example)",
+  "categories": "Bars, Nightlife, Cocktail Bars, Lounges",
+  "attributes": {
+    "RestaurantsPriceRange2": "2",
+    "NoiseLevel": "u'loud'",
+    "Music": "{'dj': True, 'live': False, 'karaoke': False, 'jukebox': False}",
+    "GoodForDancing": "True",
+    "HappyHour": "True",
+    "RestaurantsGoodForGroups": "True",
+    "OutdoorSeating": "False",
+    "HasTV": "False"
+  },
+  "hours": {"Thursday": "18:0-1:0", "Friday": "18:0-2:0", "Saturday": "18:0-2:0"}
+}

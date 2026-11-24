@@ -1,0 +1,4 @@
+# Yelp Open Dataset file: academic use only, may not be redistributed. The script downloads it.
+data/
+__pycache__/
+.venv/
